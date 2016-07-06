@@ -3,7 +3,6 @@ import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.*;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
-import ru.yandex.qatools.matchers.webdriver.TextMatcher;
 
 
 public class Page extends HtmlElement {
@@ -70,15 +69,30 @@ public class Page extends HtmlElement {
     @FindBy (name = "calc_2")
     private Button buttonCalcIncome;
 
+    @Name("Поле 'Расстояние' в разделе 'Расчитать доход с поезда'")
+    @FindBy(name = "rastojanie_1")
+    private TextInput fieldDistance;
+
     @Name("Линк 'Свой поезд'")
     @FindBy(partialLinkText = "Свой поезд")
     private Link linkText;
 
     @Name("Текст 'Ошибка'")
     @FindBy (css = "strong")
-    private TextMatcher eror;
+    private TextBlock eror ;
 
-    public TextMatcher getEror() {
+    @Name("Текст 'Теперь выберите поезда!'")
+    @FindBy(xpath = ".topic-content > form:nth-child(9) > p:nth-child(2) > span:nth-child(2)")
+    private TextBlock calctrue;
+
+    public TextInput getFieldDistance() {
+        return fieldDistance;
+    }
+
+    public TextBlock getCalctrue() {
+        return calctrue;
+    }
+    public TextBlock getEror() {
         return eror;
     }
     public TextInput getTotalTimeFieldMinRoute() { return TotalTimeFieldMinRoute; }

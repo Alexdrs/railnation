@@ -1,6 +1,8 @@
 import org.openqa.selenium.WebDriver;
 import ru.yandex.qatools.allure.annotations.Step;
 
+import static com.thoughtworks.selenium.SeleneseTestNgHelper.assertEquals;
+
 
 public class Steps {
 
@@ -54,12 +56,21 @@ public class Steps {
     public void clickButton2() {
         page.getButtonCalcIncome().click();
     }
-    @Step("Проверка наличия текста 'Ошибка' на странице")
+    @Step("Проверка наличия текста ошибки на странице")
     public void chekEror() {
-        //  assertThat((page.REMEMBER_VALUE_ELEMENT));
-        //  assertEquals(page.getEror().getText(), "Ошибка");
+        //  assertThat("Ошибка", equals());
+        assertEquals(page.getEror().getText(), page.REMEMBER_VALUE_ELEMENT);
     }
-    @Step("")
+
+    @Step("Проверка что поле расстояние заполнено после вычисления")
+    public void fieldDistanceNotNull(){
+
+    }
+    @Step("Проверка наличия текста 'Теперь выберите поезда!'")
+    public void chekCalculateTrue(){
+        assertEquals(page.getEror().getText(), "Теперь выберите поезда!");
+    }
+    @Step("Клик по ссылке 'Свой поезд' на странице")
     public void clickLink(){
         page.getLinkText().click();
     }
