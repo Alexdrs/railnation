@@ -1,7 +1,7 @@
 import org.openqa.selenium.WebDriver;
 import ru.yandex.qatools.allure.annotations.Step;
-
 import static com.thoughtworks.selenium.SeleneseTestNgHelper.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class Steps {
@@ -58,8 +58,8 @@ public class Steps {
     }
     @Step("Проверка наличия текста ошибки на странице")
     public void chekEror() {
-        //  assertThat("Ошибка", equals());
-        assertEquals(page.getEror().getText(), page.REMEMBER_VALUE_ELEMENT);
+        assertThat("Ошибка", equals(page.REMEMBER_VALUE_ELEMENT));
+        //assertEquals(page.getEror().getText(), page.REMEMBER_VALUE_ELEMENT);
     }
 
     @Step("Проверка что поле расстояние заполнено после вычисления")
