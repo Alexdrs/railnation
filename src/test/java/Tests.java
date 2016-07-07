@@ -99,6 +99,11 @@ public class Tests {
         steps.chekEror();
     }
 
+    @Test
+    public void test10() {
+        steps.clickLink();
+    }
+
     @AfterClass
     public void quitBrowser() {
         driver.quit();
