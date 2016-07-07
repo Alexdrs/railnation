@@ -7,7 +7,7 @@ import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
 
 public class Page extends HtmlElement {
 
-    public Page(WebDriver driver){
+    public Page(WebDriver driver) {
         HtmlElementLoader.populatePageObject(this, driver);
     }
 
@@ -18,15 +18,15 @@ public class Page extends HtmlElement {
     private TextInput TotalTimeFieldMinRoute;
 
     @Name("Общее время: поле секунды в Разделе 'Маршрут'")
-    @FindBy (name = "obsee_vremja_2")
+    @FindBy(name = "obsee_vremja_2")
     private TextInput TotalTimeFieldSecRoute;
 
     @Name("Время ожидания: поле минуты в разделе 'Маршрут'")
-    @FindBy (name = "vrema_ozid_1")
+    @FindBy(name = "vrema_ozid_1")
     private TextInput WaitingTimeFieldMinRoute;
 
     @Name("Время ожидания: поле секунды в Разделе 'Маршрут'")
-    @FindBy (name = "vrema_ozid_2")
+    @FindBy(name = "vrema_ozid_2")
     private TextInput WaitingTimeFieldSecRoute;
 
     @Name("Поле ускорение, для своего варианта поезда в разделе 'Маршрут' 0-20")
@@ -38,35 +38,35 @@ public class Page extends HtmlElement {
     private TextInput SpeedYourTrain;
 
     @Name("Поле состояние поезда в разделе 'Маршрут'")
-    @FindBy (name = "sostojanie_1")
+    @FindBy(name = "sostojanie_1")
     private TextInput FieldConditionTrainRoute;
 
     @Name("Меню выбора поезда по которому мерили расстояние, раздел 'Маршрут'")
-    @FindBy (name = "poezd_1")
+    @FindBy(name = "poezd_1")
     private Select ChoiceTrain1;
 
     @Name("Меню выбора поезда для сравнения, раздел 'Расчитать доход с поезда'")
-    @FindBy (name = "poezd_2[]")
+    @FindBy(name = "poezd_2[]")
     private Select choiceTrain2;
 
     @Name("Поле 'Доход с 1-ого вагона' в разделе 'Расчитать доход с поезда'")
-    @FindBy (name = "dohod_vagona")
+    @FindBy(name = "dohod_vagona")
     private TextInput fieldIncomeTrainCalculate;
 
     @Name("Чекбокс скорость в разделе 'Маршрут' подраздел 'Улучшения'")
-    @FindBy (name = "poezd_1_ul[skorost]")
+    @FindBy(name = "poezd_1_ul[skorost]")
     private CheckBox checkBoxSpeedRoute;
 
     @Name("Чекбокс ускорение в разделе 'Маршрут' подраздел 'Улучшения'")
-    @FindBy (name = "poezd_1_ul[uskorenie]")
+    @FindBy(name = "poezd_1_ul[uskorenie]")
     private CheckBox checkBoxAccelerationRoute;
 
     @Name("Кнопка '1.Вычислить расстояние'")
-    @FindBy (name = "calc_1")
+    @FindBy(name = "calc_1")
     private Button buttonCalcRoute;
 
     @Name("Кнопка '2.Вычислить доход'")
-    @FindBy (name = "calc_2")
+    @FindBy(name = "calc_2")
     private Button buttonCalcIncome;
 
     @Name("Поле 'Расстояние' в разделе 'Расчитать доход с поезда'")
@@ -78,8 +78,8 @@ public class Page extends HtmlElement {
     private Link linkText;
 
     @Name("Текст 'Ошибка'")
-    @FindBy (css = "strong")
-    private TextBlock eror ;
+    @FindBy(css = "strong")
+    private TextBlock eror;
 
     @Name("Текст 'Теперь выберите поезда!'")
     @FindBy(xpath = ".topic-content > form:nth-child(9) > p:nth-child(2) > span:nth-child(2)")
@@ -89,46 +89,62 @@ public class Page extends HtmlElement {
         return fieldDistance;
     }
 
-    public TextBlock getCalctrue() {
+    public TextBlock getCalcTrue() {
         return calctrue;
     }
+
     public TextBlock getEror() {
         return eror;
     }
-    public TextInput getTotalTimeFieldMinRoute() { return TotalTimeFieldMinRoute; }
+
+    public TextInput getTotalTimeFieldMinRoute() {
+        return TotalTimeFieldMinRoute;
+    }
+
     public TextInput getTotalTimeFieldSecRoute() {
         return TotalTimeFieldSecRoute;
     }
+
     public TextInput getWaitingTimeFieldMinRoute() {
         return WaitingTimeFieldMinRoute;
     }
+
     public Select getChoiceTrain1() {
         return ChoiceTrain1;
     }
+
     public Select getChoiceTrain2() {
         return choiceTrain2;
     }
+
     public TextInput getWaitingTimeFieldSecRoute() {
         return WaitingTimeFieldSecRoute;
     }
+
     public TextInput getFieldConditionTrainRoute() {
         return FieldConditionTrainRoute;
     }
+
     public Button getButtonCalcIncome() {
         return buttonCalcIncome;
     }
+
     public CheckBox getCheckBoxSpeedRoute() {
         return checkBoxSpeedRoute;
     }
+
     public CheckBox getCheckBoxAccelerationRoute() {
         return checkBoxAccelerationRoute;
     }
+
     public TextInput getFieldIncomeTrainCalculate() {
         return fieldIncomeTrainCalculate;
     }
+
     public Button getButtonCalcRoute() {
         return buttonCalcRoute;
     }
+
     public Link getLinkText() {
         return linkText;
     }
