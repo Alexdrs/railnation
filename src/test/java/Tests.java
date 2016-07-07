@@ -20,7 +20,7 @@ public class Tests {
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
         capabilities.setCapability("chrome.switches", Arrays.asList("--incognito"));
         driver = new ChromeDriver(capabilities);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(properties.getUrl());
         driver.manage().window().maximize();
         steps = new Steps(driver);
@@ -39,7 +39,7 @@ public class Tests {
         steps.findFieldWaitTimeS("10");
         steps.findFieldChoise1("89");
         steps.clickButton1();
-        steps.fieldDistanceNotNull();
+        steps.chekCalculateTrue();
 
     }
 
@@ -55,53 +55,6 @@ public class Tests {
         steps.findFieldTotalTimeM("0");
         steps.clickButton1();
         steps.chekEror();
-    }
-
-    @Test
-    public void test4() {
-        steps.findFieldTotalTimeM("1441");
-        steps.clickButton1();
-        steps.chekEror();
-    }
-
-    @Test
-    public void test5() {
-        steps.findFieldTotalTimeM("");
-        steps.clickButton1();
-        steps.chekEror();
-    }
-
-    @Test
-    public void test6() {
-        steps.findFieldTotalTimeS("-1");
-        steps.clickButton1();
-        steps.chekEror();
-    }
-
-    @Test
-    public void test7() {
-        steps.findFieldTotalTimeS("0");
-        steps.clickButton1();
-        steps.chekEror();
-    }
-
-    @Test
-    public void test8() {
-        steps.findFieldTotalTimeS("60");
-        steps.clickButton1();
-        steps.chekEror();
-    }
-
-    @Test
-    public void test9() {
-        steps.findFieldTotalTimeS("61");
-        steps.clickButton1();
-        steps.chekEror();
-    }
-
-    @Test
-    public void test10() {
-        steps.clickLink();
     }
 
     @AfterClass

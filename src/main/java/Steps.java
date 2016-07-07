@@ -1,8 +1,6 @@
-import org.hamcrest.CoreMatchers;
 import org.openqa.selenium.WebDriver;
 import ru.yandex.qatools.allure.annotations.Step;
 
-import static com.thoughtworks.selenium.SeleneseTestNgHelper.assertEquals;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -76,21 +74,13 @@ public class Steps {
 
     @Step("Проверка наличия текста ошибки на странице")
     public void chekEror() {
-        //assertThat("Ошибка", equalTo(page.));
-    }
-
-    @Step("Проверка что поле расстояние заполнено после вычисления")
-    public void fieldDistanceNotNull() {
-        assertThat(page.getFieldDistance(), CoreMatchers.is(not(nullValue())));
+        assertThat("Ошибка", page.getEror().getText(), is(equalTo("Ошибка")));
     }
 
     @Step("Проверка наличия текста 'Теперь выберите поезда!'")
     public void chekCalculateTrue() {
-        assertEquals(page.getEror().getText(), "Теперь выберите поезда!");
-//        assertThat(page.getCalcTrue(), CoreMatchers.is(equalTo("Теперь выберите поезда!")));
+        assertThat("Расчёт маршрута прошёл успешно", page.getCalcTrue().getText(), is(equalTo("Теперь выберите поезда!")));
     }
-
-
 
     @Step("Клик по ссылке 'Свой поезд' на странице")
     public void clickLink() {

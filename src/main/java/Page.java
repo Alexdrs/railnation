@@ -82,7 +82,7 @@ public class Page extends HtmlElement {
     private TextBlock eror;
 
     @Name("Текст 'Теперь выберите поезда!'")
-    @FindBy(xpath = ".topic-content > form:nth-child(9) > p:nth-child(2) > span:nth-child(2)")
+    @FindBy(xpath = "//*[@id=\"content\"]/div[1]/div/form[2]/p[2]/span")
     private TextBlock calctrue;
 
     public TextInput getFieldDistance() {
