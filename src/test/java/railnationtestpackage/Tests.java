@@ -1,3 +1,5 @@
+package railnationtestpackage;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -5,6 +7,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import railnationpackage.Properties;
+import railnationpackage.Steps;
 
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
@@ -32,27 +36,34 @@ public class Tests {
     }
 
     @Test
-    public void test1() {
-        steps.findFieldTotalTimeM("3");
-        steps.findFieldTotalTimeS("30");
-        steps.findFieldWaitTimeM("1");
-        steps.findFieldWaitTimeS("10");
-        steps.findFieldChoise1("89");
+    public void distanceCalculation() {
+        String mt = "3"; // Общее время минуты
+        String st = "30"; // Общее время секунды
+        String mw = "1"; // Время ожидания минуты
+        String sw = "10"; // Время ожидания секунды
+        String ch = "89"; // Состояние поезда в процентах
+        steps.findFieldTotalTimeM(mt);
+        steps.findFieldTotalTimeS(st);
+        steps.findFieldWaitTimeM(mw);
+        steps.findFieldWaitTimeS(sw);
+        steps.findFieldChoise1(ch);
         steps.clickButton1();
         steps.chekCalculateTrue();
 
     }
 
     @Test
-    public void test2() {
-        steps.findFieldTotalTimeM("-1");
+    public void testForBugWithNegativeValueField() {
+        String mt = "-1"; // Общее время минуты
+        steps.findFieldTotalTimeM(mt);
         steps.clickButton1();
         steps.chekEror();
     }
 
     @Test
-    public void test3() {
-        steps.findFieldTotalTimeM("0");
+    public void testForBugWithZeroValueField() {
+        String mt = "0"; // Общее время минуты
+        steps.findFieldTotalTimeM(mt);
         steps.clickButton1();
         steps.chekEror();
     }
