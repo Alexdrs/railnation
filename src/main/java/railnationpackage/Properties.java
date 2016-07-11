@@ -1,8 +1,7 @@
 package railnationpackage;
 
 import ru.yandex.qatools.properties.PropertyLoader;
-import ru.yandex.qatools.properties.annotations.Property;
-import ru.yandex.qatools.properties.annotations.Resource;
+import ru.yandex.qatools.properties.annotations.*;
 
 @Resource.Classpath("config.properties")
 
@@ -13,17 +12,17 @@ public class Properties {
     }
 
     @Property("url")
-    private String URL;
+    private String url;
 
     public String getUrl() {
-        return URL;
+        return url;
     }
 
     @Property("driver_patch")
-    private String DRIVER_PATCH;
+    private String driverPatch;
 
-    public String getDRIVER_PATCH() {
-        return DRIVER_PATCH;
+    public String getDriverPatch() {
+        return driverPatch;
     }
 }
 

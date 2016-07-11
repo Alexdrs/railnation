@@ -4,8 +4,7 @@ import org.openqa.selenium.WebDriver;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 
 public class Steps {
 
@@ -16,27 +15,27 @@ public class Steps {
     }
 
     @Step("Заполнить поле Общее время минуты")
-    public void findFieldTotalTimeM(String data) {
+    public void findFieldTotalTimeMinutes(String data) {
         page.getTotalTimeFieldMinRoute().sendKeys(data);
     }
 
     @Step("Заполнить поле 'Общее время секунды'")
-    public void findFieldTotalTimeS(String data) {
-        page.getTotalTimeFieldSecRoute().sendKeys(data);
+    public void findFieldTotalTimeSeconds(String data) {
+        page.getTotalTimeFieldSecondsRoute().sendKeys(data);
     }
 
     @Step("Заполнить поле 'Время ожидания минуты'")
-    public void findFieldWaitTimeM(String data) {
-        page.getWaitingTimeFieldMinRoute().sendKeys(data);
+    public void findFieldWaitTimeMinutes(String data) {
+        page.getWaitingTimeFieldMinutesRoute().sendKeys(data);
     }
 
     @Step("Заполнить поле 'Время ожидания секунды'")
-    public void findFieldWaitTimeS(String data) {
-        page.getWaitingTimeFieldSecRoute().sendKeys(data);
+    public void findFieldWaitTimeSeconds(String data) {
+        page.getWaitingTimeFieldSecondsRoute().sendKeys(data);
     }
 
-    @Step("Заполнить поле состояние поезда 1")
-    public void findFieldChoise1(String data) {
+    @Step("Заполнить поле состояние поезда в разделе 'Маршрут'")
+    public void findFieldChoiseTrainPercentage(String data) {
         page.getFieldConditionTrainRoute().sendKeys(data);
     }
 
@@ -77,7 +76,7 @@ public class Steps {
 
     @Step("Проверка наличия текста ошибки на странице")
     public void chekEror() {
-        assertThat("Ошибка", page.getEror().getText(), is(equalTo("Ошибка")));
+        assertThat("Наличие сообщения об ошибке", page.getEror().getText(), is(equalTo(page.REMEMBER_VALUE_ELEMENT)));
     }
 
     @Step("Проверка наличия текста 'Теперь выберите поезда!'")

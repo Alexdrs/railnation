@@ -1,5 +1,4 @@
 package railnationtestpackage;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -20,7 +19,7 @@ public class Tests {
 
     @BeforeClass
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", properties.getDRIVER_PATCH());
+        System.setProperty("webdriver.chrome.driver", properties.getDriverPatch());
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
         capabilities.setCapability("chrome.switches", Arrays.asList("--incognito"));
         driver = new ChromeDriver(capabilities);
@@ -37,16 +36,16 @@ public class Tests {
 
     @Test
     public void distanceCalculation() {
-        String mt = "3"; // Общее время минуты
-        String st = "30"; // Общее время секунды
-        String mw = "1"; // Время ожидания минуты
-        String sw = "10"; // Время ожидания секунды
-        String ch = "89"; // Состояние поезда в процентах
-        steps.findFieldTotalTimeM(mt);
-        steps.findFieldTotalTimeS(st);
-        steps.findFieldWaitTimeM(mw);
-        steps.findFieldWaitTimeS(sw);
-        steps.findFieldChoise1(ch);
+        String totalTimeMinutes = "3";
+        String totalTimeSeconds = "30";
+        String waitingTimeMinutes = "1";
+        String waitingTimeSeconds = "10";
+        String conditionTrainPrecentage = "89";
+        steps.findFieldTotalTimeMinutes(totalTimeMinutes);
+        steps.findFieldTotalTimeSeconds(totalTimeSeconds);
+        steps.findFieldWaitTimeMinutes(waitingTimeMinutes);
+        steps.findFieldWaitTimeSeconds(waitingTimeSeconds);
+        steps.findFieldChoiseTrainPercentage(conditionTrainPrecentage);
         steps.clickButton1();
         steps.chekCalculateTrue();
 
@@ -54,16 +53,16 @@ public class Tests {
 
     @Test
     public void testForBugWithNegativeValueField() {
-        String mt = "-1"; // Общее время минуты
-        steps.findFieldTotalTimeM(mt);
+        String totalTimeMinutes = "-1";
+        steps.findFieldTotalTimeMinutes(totalTimeMinutes);
         steps.clickButton1();
         steps.chekEror();
     }
 
     @Test
     public void testForBugWithZeroValueField() {
-        String mt = "0"; // Общее время минуты
-        steps.findFieldTotalTimeM(mt);
+        String totalTimeMinutes = "0";
+        steps.findFieldTotalTimeMinutes(totalTimeMinutes);
         steps.clickButton1();
         steps.chekEror();
     }

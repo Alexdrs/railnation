@@ -103,11 +103,11 @@ public class Page extends HtmlElement {
         return TotalTimeFieldMinRoute;
     }
 
-    public TextInput getTotalTimeFieldSecRoute() {
+    public TextInput getTotalTimeFieldSecondsRoute() {
         return TotalTimeFieldSecRoute;
     }
 
-    public TextInput getWaitingTimeFieldMinRoute() {
+    public TextInput getWaitingTimeFieldMinutesRoute() {
         return WaitingTimeFieldMinRoute;
     }
 
@@ -119,7 +119,7 @@ public class Page extends HtmlElement {
         return choiceTrain2;
     }
 
-    public TextInput getWaitingTimeFieldSecRoute() {
+    public TextInput getWaitingTimeFieldSecondsRoute() {
         return WaitingTimeFieldSecRoute;
     }
 
