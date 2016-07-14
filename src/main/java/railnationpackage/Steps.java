@@ -6,6 +6,7 @@ import ru.yandex.qatools.allure.annotations.Step;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.text.IsEqualIgnoringCase.equalToIgnoringCase;
 
 public class Steps {
 
@@ -77,7 +78,7 @@ public class Steps {
 
     @Step("Проверка наличия текста ошибки на странице")
     public void chekEror() {
-        assertThat("Наличие сообщения об ошибке", page.getEror().getText(), is(equalTo(page.REMEMBER_VALUE_ELEMENT)));
+        assertThat("Наличие сообщения об ошибке", page.getEror().getText(), equalToIgnoringCase(page.REMEMBER_VALUE_ELEMENT));
     }
 
     @Step("Проверка наличия текста 'Теперь выберите поезда!'")
