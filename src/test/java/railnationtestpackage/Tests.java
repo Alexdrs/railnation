@@ -3,6 +3,7 @@ package railnationtestpackage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -47,7 +48,7 @@ public class Tests {
         steps.findFieldWaitTimeSeconds(waitingTimeSeconds);
         steps.findFieldChoiseTrainPercentage(conditionTrainPrecentage);
         steps.clickButton1();
-        steps.chekCalculateTrue();
+       // steps.chekCalculateTrue();
         steps.setCheckboxIsValeZero(false);
     }
 
@@ -67,8 +68,8 @@ public class Tests {
         steps.chekEror();
     }
 
-//    @AfterClass
-//    public void quitBrowser() {
-//        driver.quit();
-//    }
+    @AfterClass
+    public void quitBrowser() {
+        driver.quit();
+    }
 }
