@@ -4,7 +4,8 @@ import org.openqa.selenium.WebDriver;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class Steps {
 
@@ -87,6 +88,11 @@ public class Steps {
     @Step("Клик по ссылке 'Свой поезд' на странице")
     public void clickLink() {
         page.getLinkText().click();
+    }
+
+    @Step("задать чекбоксу значение {0}")
+    public void setCheckboxIsValeZero(boolean value){
+        page.setCheckBoxSpeedRoute(value);
     }
 }
 

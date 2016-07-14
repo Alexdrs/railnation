@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.*;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 
 public class Page extends HtmlElement {
@@ -17,35 +19,35 @@ public class Page extends HtmlElement {
 
     @Name("Общее время: поле минуты в разделе 'Маршрут'")
     @FindBy(name = "obsee_vremja_1")
-    private TextInput TotalTimeFieldMinRoute;
+    private TextInput totalTimeFieldMinRoute;
 
     @Name("Общее время: поле секунды в Разделе 'Маршрут'")
     @FindBy(name = "obsee_vremja_2")
-    private TextInput TotalTimeFieldSecRoute;
+    private TextInput totalTimeFieldSecRoute;
 
     @Name("Время ожидания: поле минуты в разделе 'Маршрут'")
     @FindBy(name = "vrema_ozid_1")
-    private TextInput WaitingTimeFieldMinRoute;
+    private TextInput waitingTimeFieldMinRoute;
 
     @Name("Время ожидания: поле секунды в Разделе 'Маршрут'")
     @FindBy(name = "vrema_ozid_2")
-    private TextInput WaitingTimeFieldSecRoute;
+    private TextInput waitingTimeFieldSecRoute;
 
     @Name("Поле ускорение, для своего варианта поезда в разделе 'Маршрут' 0-20")
     @FindBy(name = "poezd_1_uskor_1")
-    private TextInput AccelerationYourTrain;
+    private TextInput accelerationYourTrain;
 
     @Name("Поле скорость, для своего варианта поезда в разделе 'Маршрут'")
     @FindBy(name = "poezd_1_skor_1")
-    private TextInput SpeedYourTrain;
+    private TextInput speedYourTrain;
 
     @Name("Поле состояние поезда в разделе 'Маршрут'")
     @FindBy(name = "sostojanie_1")
-    private TextInput FieldConditionTrainRoute;
+    private TextInput fieldConditionTrainRoute;
 
     @Name("Меню выбора поезда по которому мерили расстояние, раздел 'Маршрут'")
     @FindBy(name = "poezd_1")
-    private Select ChoiceTrain1;
+    private Select choiceTrain1;
 
     @Name("Меню выбора поезда для сравнения, раздел 'Расчитать доход с поезда'")
     @FindBy(name = "poezd_2[]")
@@ -100,19 +102,19 @@ public class Page extends HtmlElement {
     }
 
     public TextInput getTotalTimeFieldMinRoute() {
-        return TotalTimeFieldMinRoute;
+        return totalTimeFieldMinRoute;
     }
 
     public TextInput getTotalTimeFieldSecondsRoute() {
-        return TotalTimeFieldSecRoute;
+        return totalTimeFieldSecRoute;
     }
 
     public TextInput getWaitingTimeFieldMinutesRoute() {
-        return WaitingTimeFieldMinRoute;
+        return waitingTimeFieldMinRoute;
     }
 
     public Select getChoiceTrain1() {
-        return ChoiceTrain1;
+        return choiceTrain1;
     }
 
     public Select getChoiceTrain2() {
@@ -120,11 +122,11 @@ public class Page extends HtmlElement {
     }
 
     public TextInput getWaitingTimeFieldSecondsRoute() {
-        return WaitingTimeFieldSecRoute;
+        return waitingTimeFieldSecRoute;
     }
 
     public TextInput getFieldConditionTrainRoute() {
-        return FieldConditionTrainRoute;
+        return fieldConditionTrainRoute;
     }
 
     public Button getButtonCalcIncome() {
@@ -149,5 +151,12 @@ public class Page extends HtmlElement {
 
     public Link getLinkText() {
         return linkText;
+    }
+
+    public void setCheckBoxSpeedRoute(boolean value) {
+        assertThat("elementNotFound", getCheckBoxSpeedRoute(), is(notNullValue()));
+        if (getCheckBoxSpeedRoute().isEnabled() != value) {
+            getCheckBoxSpeedRoute().click();
+        }
     }
 }
